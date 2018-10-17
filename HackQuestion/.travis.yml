@@ -3,4 +3,4 @@ mono: none
 dotnet: 2.0.1
 script:
  - dotnet restore
- - dotnet build ./HackQuestion/
+ - dotnet build ./HackQuestion/ 
