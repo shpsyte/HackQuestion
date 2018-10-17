@@ -1,0 +1,9 @@
+﻿language: csharp
+solution: HackQuestion.sln
+
+
+language: csharp
+mono: none
+dotnet: 2.1.400
+script:
+ - dotnet restore
