@@ -1,0 +1,12 @@
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\bin\Debug\netcoreapp2.0\HackQuestion.deps.json
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\bin\Debug\netcoreapp2.0\HackQuestion.runtimeconfig.json
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\bin\Debug\netcoreapp2.0\HackQuestion.runtimeconfig.dev.json
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\bin\Debug\netcoreapp2.0\HackQuestion.dll
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\bin\Debug\netcoreapp2.0\HackQuestion.pdb
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\obj\Debug\netcoreapp2.0\HackQuestion.csprojAssemblyReference.cache
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\obj\Debug\netcoreapp2.0\HackQuestion.csproj.CoreCompileInputs.cache
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\obj\Debug\netcoreapp2.0\HackQuestion.AssemblyInfoInputs.cache
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\obj\Debug\netcoreapp2.0\HackQuestion.AssemblyInfo.cs
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\obj\Debug\netcoreapp2.0\HackQuestion.dll
+E:\DotNet\Workspace\HackQuestion\HackQuestion\HackQuestion\obj\Debug\netcoreapp2.0\HackQuestion.pdb
