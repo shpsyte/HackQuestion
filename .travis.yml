@@ -1,2 +1,6 @@
 ﻿language: csharp
-solution: HackQuestion.sln
+mono: none
+dotnet: 2.0.1
+script:
+ - dotnet restore
+ - dotnet build ./HackQuestion/ 
