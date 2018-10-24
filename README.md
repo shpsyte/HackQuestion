@@ -16,9 +16,9 @@ The code is open source and available under the [MIT License](LICENSE.md).
 
 
 ## Build With 
-* .Net Core 2.0
-   Visual Studio Code
-   MariaDB
+- [x] .Net Core 2.0
+- [x] Visual Studio Code
+- [x] MariaDB
 
 ## How to Engage, Contribute and Provide Feedback
 You are also encouraged to start a discussion by filing an issue.
