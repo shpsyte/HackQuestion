@@ -12,7 +12,7 @@ Simply to use.
 All documentation can be found at source code.
 
 ## License
-The code is open source and available under the [MIT License](LICENSE.md).
+The code is open source and available under the [MIT License](LICENSE).
 
 
 ## Build With 
