@@ -23,7 +23,13 @@ namespace HackQuestion.Libraries.Data.Repository
 
         }
 
-        public virtual async Task<T> Add(T entity)
+        public virtual T Add(T entity)
+        {
+            _entity.Add(entity);
+            return entity;
+        }
+
+        public virtual async Task<T> AddAsync(T entity)
         {
             await _entity.AddAsync(entity);
             return entity;
@@ -38,6 +44,13 @@ namespace HackQuestion.Libraries.Data.Repository
             _context.Entry(entity).State = EntityState.Modified;
             return entity;
         } 
+
+        public virtual void Save()
+        {
+            _context.SaveChanges();
+
+        }
+        public virtual async Task<int> SaveAsync() => await _context.SaveChangesAsync();
 
         protected virtual void Dispose(bool disposing)
         {
@@ -57,6 +70,7 @@ namespace HackQuestion.Libraries.Data.Repository
             GC.SuppressFinalize(this);
         }
 
+        public virtual int Count() => _entity.Count();
         public virtual async Task<int> CountAsync() => await _entity.CountAsync();
         public virtual async Task<int> CountAsync(Expression<Func<T, bool>> where) => await _entity.Where(where).CountAsync();
         public virtual T Find(params object[] key) => _entity.Find(key);
@@ -73,7 +87,6 @@ namespace HackQuestion.Libraries.Data.Repository
         public virtual async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> where) => await _entity.Where(where).ToListAsync();
         public virtual IQueryable<T> Query() => _entity.AsNoTracking().AsQueryable();
         public virtual IQueryable<T> Query(Expression<Func<T, bool>> where) => _entity.AsNoTracking().Where(where).AsQueryable();
-        public virtual async Task<int> Save() => await _context.SaveChangesAsync();
         public virtual async Task<T> SingleOrDefaultAsync() => await _entity.SingleOrDefaultAsync();
         public virtual async Task<T> SingleOrDefaultAsync(Expression<Func<T, bool>> where) => await _entity.AsNoTracking().Where(where).SingleOrDefaultAsync();
 

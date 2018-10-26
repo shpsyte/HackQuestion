@@ -14,6 +14,7 @@ using HackQuestion.Services;
 using HackQuestion.Libraries.Data.Repository;
 using HackQuestion.Libraries.Core.Domain.Categories;
 using HackQuestion.Libraries.Services.Interfaces;
+using HackQuestion.Libraries.Services.Entity;
 
 namespace HackQuestion
 {
@@ -39,7 +40,15 @@ namespace HackQuestion
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-            services.AddScoped(typeof(ICategory), typeof(Category));
+            services.AddScoped(typeof(ICategoryServices), typeof(CategoryServices));
+            services.AddScoped(typeof(IQuestionServices), typeof(QuestionServices));
+
+
+            //Please pay attention on that:
+            // Singleton which creates a single instance throughout the application. It creates the instance for the first time and reuses the same object in the all calls.
+            // Scoped lifetime services are created once per request within the scope. It is equivalent to Singleton in the current scope. eg. in MVC it creates 1 instance per each http request but uses the same instance in the other calls within the same web request.
+            // Transient lifetime services are created each time they are requested. This lifetime works best for lightweight, stateless services. 
+
 
             services.AddMvc();
         }

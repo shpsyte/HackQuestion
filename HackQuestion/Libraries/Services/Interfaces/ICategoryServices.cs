@@ -3,8 +3,8 @@ using HackQuestion.Libraries.Data.Repository;
 
 namespace HackQuestion.Libraries.Services.Interfaces
 {
-    public interface ICategory : IRepository<Category>
+    public interface ICategoryServices : IRepository<Category>
     {
-         
+        bool Check();
     }
 }

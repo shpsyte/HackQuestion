@@ -5,29 +5,30 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HackQuestion.Models;
+using HackQuestion.Libraries.Services.Interfaces;
+using HackQuestion.Libraries.Core.Domain.Categories;
+using HackQuestion.Libraries.Services.Entity;
 
 namespace HackQuestion.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly ICategoryServices _category;
+        private readonly IQuestionServices _question;
+
+        public HomeController(ICategoryServices category, IQuestionServices question)
+        {
+            this._category = category;
+            this._question = question;
+
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
 
         public IActionResult Error()
         {

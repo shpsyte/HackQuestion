@@ -22,8 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Libraries\Core\" />
-    <Folder Include="Libraries\Services\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

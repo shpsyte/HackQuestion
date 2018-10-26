@@ -8,15 +8,23 @@ namespace HackQuestion.Libraries.Data.Repository
 {
     public interface IRepository<T> where T : class
     {
-        Task<T> Add(T entity);
+        T Add(T entity);
+        Task<T> AddAsync(T entity);
+
+
         T Delete(T entity);
         T Update (T entity);
-        Task<int> Save();
+        Task<int> SaveAsync();
+        
+        void Save();
+
+
         void Dispose();
 
         Task<T> SingleOrDefaultAsync();
         Task<T> SingleOrDefaultAsync(Expression<Func<T, bool>> where);
 
+        int Count();
         Task<int> CountAsync();
         Task<int> CountAsync(Expression<Func<T, bool>> where);
 
