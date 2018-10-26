@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HackQuestion.Libraries.Data
+namespace HackQuestion.Libraries.Data.Map
 {
     public class IdentityMap : IMapConfiguration<ApplicationUser>
     {

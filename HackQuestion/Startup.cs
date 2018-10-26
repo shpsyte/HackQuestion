@@ -8,9 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using HackQuestion.Data;
+using HackQuestion.Libraries.Data.Context;
 using HackQuestion.Models;
 using HackQuestion.Services;
+using HackQuestion.Libraries.Data.Repository;
+using HackQuestion.Libraries.Core.Domain.Categories;
+using HackQuestion.Libraries.Services.Interfaces;
 
 namespace HackQuestion
 {
@@ -35,6 +38,8 @@ namespace HackQuestion
 
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(ICategory), typeof(Category));
 
             services.AddMvc();
         }

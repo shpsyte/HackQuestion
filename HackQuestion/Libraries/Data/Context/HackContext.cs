@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using HackQuestion.Models;
-using HackQuestion.Libraries.Data;
+using HackQuestion.Libraries.Data.Map;
 using System.Reflection;
 using Microsoft.AspNetCore.Identity;
 
-namespace HackQuestion.Data
+namespace HackQuestion.Libraries.Data.Context
 {
     public class HackContext : IdentityDbContext<ApplicationUser>
     {

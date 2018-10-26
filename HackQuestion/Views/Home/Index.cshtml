@@ -27,7 +27,6 @@
  
   
 <header class="jumbotron text-center bg-gray pb-4 mb-5">
-   
     <h1 class="alt-h0  text-dark font-weight-light">How to contribute on 
         <i class="text-info font-weight-normal">Hack</i> 
         <i style="font-style: italic" class="font-weight-light text-success">the</i> 
@@ -35,16 +34,17 @@
         
         </h1>
       <h5 class="alt-lead text-gray  col-md-8 mx-auto font-weight-light">
-         Want to contribute ? Just save your question on <a target="_blank" href="https://github.com/shpsyte/HackQuestion">GitHub!</a>
+         Want to contribute? Just send your question <a data-toggle="modal" data-target="#sendquestion" href="#">here</a>.
     </h5>
     <p class="small">This is a Open Source Project, you can contribute add feacture, add better layout, 
-        start <a target="_blank" href="https://github.com/shpsyte/HackQuestion">where.</a>
+        start <a target="_blank" href="https://github.com/shpsyte/HackQuestion">where</a>.
     </p>
    <!-- <a class="btn btn-info btn-lg" href="#">Send question</a> -->
 </header>
 
- 
-  
+@{ await Html.RenderPartialAsync("_Modal"); }
+
+
  
 
 
