@@ -71,6 +71,7 @@ namespace HackQuestion.Libraries.Data.Repository
         }
 
         public virtual int Count() => _entity.Count();
+        public virtual int Count(Expression<Func<T, bool>> where) => _entity.Where(where).Count();
         public virtual async Task<int> CountAsync() => await _entity.CountAsync();
         public virtual async Task<int> CountAsync(Expression<Func<T, bool>> where) => await _entity.Where(where).CountAsync();
         public virtual T Find(params object[] key) => _entity.Find(key);

@@ -8,6 +8,7 @@ using HackQuestion.Models;
 using HackQuestion.Libraries.Services.Interfaces;
 using HackQuestion.Libraries.Core.Domain.Categories;
 using HackQuestion.Libraries.Services.Entity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HackQuestion.Controllers
 {
@@ -26,6 +27,7 @@ namespace HackQuestion.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.CategoryId = new SelectList(_category.Query().ToList(), "Id", "Name");
             return View();
         }
 

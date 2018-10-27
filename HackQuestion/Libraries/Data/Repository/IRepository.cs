@@ -25,6 +25,7 @@ namespace HackQuestion.Libraries.Data.Repository
         Task<T> SingleOrDefaultAsync(Expression<Func<T, bool>> where);
 
         int Count();
+        int Count(Expression<Func<T, bool>> where);
         Task<int> CountAsync();
         Task<int> CountAsync(Expression<Func<T, bool>> where);
 

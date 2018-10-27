@@ -1,4 +1,6 @@
-﻿<header class="jumbotron text-center bg-gray pb-2 mb-0">
+﻿
+
+<header class="jumbotron text-center bg-gray pb-2 mb-0">
    
     <h1 class="alt-h0 mb-2 text-info">Hack <i style="font-style: italic" class="font-weight-light text-success">the</i> Question</h1>
     <h4 class="alt-lead text-gray mb-md-5 col-md-8 mx-auto font-weight-light">
@@ -13,9 +15,11 @@
     <div class="row">
         <div class="col-md-3">
             1. Choose your language
+            <select id="categoryIdRandom" class="form-control" asp-items="ViewBag.CategoryId"> </select>
         </div>
         <div class="col-md-3">
             2. Generate Question
+            <button onclick="controller.random(event);" class="btn btn-success">Generate</button>
         </div>
         <div class="col-md-6">
            We add some feacture, like <b>record yourself, time to response,</b> enjoy it ;)
@@ -25,24 +29,37 @@
     </div>
 </header>
  
-  
-<header class="jumbotron text-center bg-gray pb-4 mb-5">
-    <h1 class="alt-h0  text-dark font-weight-light">How to contribute on 
-        <i class="text-info font-weight-normal">Hack</i> 
-        <i style="font-style: italic" class="font-weight-light text-success">the</i> 
-        <i class="text-info font-weight-normal">Question</i>
-        
-        </h1>
-      <h5 class="alt-lead text-gray  col-md-8 mx-auto font-weight-light">
-         Want to contribute? Just send your question <a data-toggle="modal" data-target="#sendquestion" href="#">here</a>.
-    </h5>
-    <p class="small">This is a Open Source Project, you can contribute add feacture, add better layout, 
-        start <a target="_blank" href="https://github.com/shpsyte/HackQuestion">where</a>.
-    </p>
-   <!-- <a class="btn btn-info btn-lg" href="#">Send question</a> -->
+
+ 
+<header class="jumbotron bg-white p-0">
+    <div id="table" class="container p-0">
+     
+    </div>
 </header>
 
-@{ await Html.RenderPartialAsync("_Modal"); }
+  
+<header class="jumbotron text-center bg-gray pb-4 mb-5">
+    <h1 class="alt-h0  text-dark font-weight-light">
+        How to contribute on
+        <i class="text-info font-weight-normal">Hack</i>
+        <i style="font-style: italic" class="font-weight-light text-success">the</i>
+        <i class="text-info font-weight-normal">Question</i>
+
+    </h1>
+     
+
+
+    <h5 class="alt-lead text-gray  col-md-8 mx-auto font-weight-light">
+        Want to contribute? Just send your question <a data-toggle="modal" data-target="#sendquestion" href="#">here</a>.
+    </h5>
+    <p class="small">
+        This is a Open Source Project, you can contribute add feacture, add better layout,
+        start <a target="_blank" href="https://github.com/shpsyte/HackQuestion">where</a>.
+    </p>
+    <!-- <a class="btn btn-info btn-lg" href="#">Send question</a> -->
+</header>
+
+@{ await Html.RenderPartialAsync("_Modal"); } 
 
 
  

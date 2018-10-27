@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using HackQuestion.Libraries.Core.Domain.Questions;
 using HackQuestion.Libraries.Services.Interfaces;
+using HackQuestion.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace HackQuestion.Controllers
 {
@@ -24,10 +26,10 @@ namespace HackQuestion.Controllers
         public IEnumerable<Question> Get() => _question.GetAll();
 
         // GET: api/Question/5
-        [HttpGet("{id:int}")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var data = _question.Find(id);
+            var data = _question.GetAll(a => a.CategoryId == id);
             if (data == null)
                 return NotFound();
 
@@ -35,22 +37,48 @@ namespace HackQuestion.Controllers
         }
 
 
+        //[HttpGet("{categoryid:int}")]
+        //[Route("api/RandomByCategory/")]
+        //public IActionResult GetByCategory(int categoryid)
+        //{
+        //    var data = _question.GetAll(a => a.CategoryId == categoryid);
+        //    if (data == null)
+        //        return NotFound();
+
+        //    return Ok(data);
+        //}
+
         // POST: api/Question
         [HttpPost]
-        public IActionResult Post([FromBody] Question question)
+        public IActionResult Post([FromBody] QuestionModel questionModel)
         {
-            if (question == null)
+            bool valid = TryValidateModel(questionModel);
+
+            if (!valid)
             {
                 return BadRequest();
             }
 
-            question.Deleted = false;
-            question.CreateDate = System.DateTime.UtcNow;
+            Question question = new Question(
+                questionModel._Description,
+                questionModel._Tips,
+                questionModel._Answer,
+                questionModel._CategoryId,
+                questionModel._Seconds
+                
+             );
+
+ 
+             if (_category.Count(a => a.Id == questionModel._CategoryId) == 0)
+             {
+                 ModelState.AddModelError("CategoryId","Category not found");
+                 return BadRequest(ModelState);
+             }
 
             _question.Add(question);
             _question.Save();
-
-            return CreatedAtRoute("Get", new { id = question.Id }, question);
+            return Ok(question);
+            // return CreatedAtRoute("Get", new { id = question.Id });
 
         }
         

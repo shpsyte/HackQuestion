@@ -1,42 +1,56 @@
 <div class="modal fade" id="sendquestion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Add Question</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Add Question</h5> &nbsp;
+        <span id="msg" class="text-success"></span>
+
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form>
+      
+    <div class="modal-body">
+        <form class="form" id="formQuestion" onsubmit="controller.add(event); ">
+
+        <div class="form-row">
+        <div class="col">
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Kind of Question</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                <option>C#</option>
-                <option>Javascript</option>
-                <option>Java</option>
-                <option>HTML</option>
-                <option>General</option>
-                </select>
+                <label for="categoryId">Kind of Question</label>
+                <select id="categoryId" class="form-control" asp-items="ViewBag.CategoryId"> </select>
+            </div>
+        </div>
+        <div class="col">
+           <div class="form-group ">
+                <label for="time">Response at Time:</label>
+                <input type="number" in  class="form-control" id="time" value="0" >
+             </div>
+        </div>
+      </div>
+ 
+            <div class="form-group">
+                <label for="question">Question</label>
+                 <textarea class="form-control" id="question" required rows="4"></textarea>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Question</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Your Question">
+                <label for="answare">Answare</label>
+                <textarea class="form-control" id="answare" rows="4"></textarea>
             </div>
+
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Answare</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label for="tips">Tips</label>
+                <textarea class="form-control" id="tips" rows="2"></textarea>
             </div>
-            <div class="form-group">
-                <label for="exampleFormControlTextarea1">Time</label>
-                <input type="time" class="form-control" id="time" >
-            </div>
-            </form>
+
+            
+         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="submit" form="formQuestion" class="btn btn-primary">Save changes</button>
       </div>
+
+
     </div>
   </div>
 </div>

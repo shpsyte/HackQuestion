@@ -27,7 +27,7 @@ namespace HackQuestion.Libraries.Data.Map
 
             entity.HasOne(q => q.Category)
                   .WithMany(c => c.Questions)
-                  .HasForeignKey(f => f.CategoriId);
+                  .HasForeignKey(f => f.CategoryId);
 
         }
     }

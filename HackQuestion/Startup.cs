@@ -15,6 +15,7 @@ using HackQuestion.Libraries.Data.Repository;
 using HackQuestion.Libraries.Core.Domain.Categories;
 using HackQuestion.Libraries.Services.Interfaces;
 using HackQuestion.Libraries.Services.Entity;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace HackQuestion
 {
@@ -56,6 +57,8 @@ namespace HackQuestion
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+               
             if (env.IsDevelopment())
             {
                 app.UseBrowserLink();
@@ -66,6 +69,7 @@ namespace HackQuestion
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            
 
             app.UseStaticFiles();
 

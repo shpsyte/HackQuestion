@@ -17,7 +17,7 @@ namespace HackQuestion.Controllers
 
         private readonly ICategoryServices _categoryServices;
 
-        public CategoryController(ICategoryServices categoryServices, int i)
+        public CategoryController(ICategoryServices categoryServices)
         {
             this._categoryServices = categoryServices;
 
