@@ -1,19 +1,20 @@
 class QuestionController{
     constructor(){
         this._services = new QuestionServices();
+        this._view = new QuestionView(document.querySelector("#results"));
 
         let form = document.querySelector("#formQuestion");
         let category = document.querySelector("#categoryIdRandom");
-        
+        let maxQuestion = document.querySelector("#maxQuestion");
+      
         this._question = form.question;
         this._time = form.time;
         this._categoryId = form.categoryId;
         this._categoryIdRandom = category;
+        this._maxQuestion = maxQuestion;
         this._tips = form.tips;
         this._answare = form.answare;
-        this._list = [];
-        this._view = new QuestionView();
-                  
+        this._listOfQuestion = [];
         
         this._init(); 
     }
@@ -84,11 +85,11 @@ class QuestionController{
         this._services
         .list(this._categoryIdRandom.value)
         .then(questions => {
-            this._list = questions;
-            this._updateView();
+            this._updateView(Arrays.randomArray(questions, this._maxQuestion.value));
             return questions;
          })
         .catch(error => {
+            //todo.. make a MVC to message's to ... :)
            document.querySelector("#msg").className = "danger";
            document.querySelector("#msg").textContent = error;
             console.log(error);
@@ -97,22 +98,11 @@ class QuestionController{
     }
     
 
-    _updateView()
+    _updateView(model)
     {
-        var table = this._view.template(this._list);
-
-        document.querySelector("#table").innerHTML = table;
-
-        console.log(table);
-
+        this._view.update(model);
     }
 
-
-
-
-
     
- 
-
 
 }

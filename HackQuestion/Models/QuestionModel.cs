@@ -8,7 +8,11 @@ namespace HackQuestion.Models
 {
     public class QuestionModel
     {
-       
+       public QuestionModel()
+       {
+           this._Published = false;
+           
+       }
 
         [Key]
         public int _Id { get; set; }
@@ -18,6 +22,7 @@ namespace HackQuestion.Models
         public string _Answer { get; set; }
         public int _Seconds { get; set; }
         public int _CategoryId { get; set; }
+        public bool _Published {get;set;}
        
 
       

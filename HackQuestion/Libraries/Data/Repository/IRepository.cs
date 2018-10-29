@@ -39,6 +39,7 @@ namespace HackQuestion.Libraries.Data.Repository
 
         IEnumerable<T> GetAll();
         IEnumerable<T> GetAll(Expression<Func<T, bool>> where);
+        IEnumerable<T> GetAll(Expression<Func<T, bool>> where, int take);
         Task<IEnumerable<T>> GetAllAsync();
         Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> where);
 

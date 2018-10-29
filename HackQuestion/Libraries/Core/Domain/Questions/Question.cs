@@ -13,14 +13,16 @@ namespace HackQuestion.Libraries.Core.Domain.Questions
         {
             this.CreateDate = System.DateTime.UtcNow;
             this.Deleted = false;
+            this.Published = true;
         }
 
-        public Question(string description, string tips, string answer, int categoryId, int second = 0) : this()
+        public Question(string description, string tips, string answer, int categoryId, bool published, int second = 0) : this()
         {
             this.Description = description;
             this.Tips = tips;
             this.Answer = answer;
             this.CategoryId = categoryId;
+            this.Published = published;
             this.Seconds = second > 0 ? second : 0;
         }
 
@@ -34,6 +36,8 @@ namespace HackQuestion.Libraries.Core.Domain.Questions
         public int CategoryId { get; set; }
         public DateTime CreateDate { get; set; }
         public bool Deleted { get; set; }
+        
+        public bool Published {get;set;}
 
         public Category Category { get; set; }
 

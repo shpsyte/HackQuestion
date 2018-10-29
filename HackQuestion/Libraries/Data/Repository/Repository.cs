@@ -83,6 +83,8 @@ namespace HackQuestion.Libraries.Data.Repository
         }
         public virtual async Task<ICollection<T>> FindByAsync(Expression<Func<T, bool>> where) => await _entity.Where(where).ToListAsync();
         public virtual IEnumerable<T> GetAll() => _entity.ToList();
+        public virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> where, int take) => _entity.Where(where).Take(take).ToList();
+        
         public virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> where) => _entity.Where(where).ToList();
         public virtual async Task<IEnumerable<T>> GetAllAsync() => await _entity.ToListAsync();
         public virtual async Task<IEnumerable<T>> GetAllAsync(Expression<Func<T, bool>> where) => await _entity.Where(where).ToListAsync();

@@ -5,6 +5,8 @@ class Question{
         this._answer = answer;
         this._categoryid = categoryid;
         this._seconds = seconds;
+        this._published = false;
+
 
         Object.freeze(this);
     }

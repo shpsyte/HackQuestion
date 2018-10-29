@@ -11,7 +11,7 @@ class QuestionDao{
 
             this
                 ._http
-                .post(this._baseUrl, question)
+                ._post(this._baseUrl, question)
                 .then(question => {
                     resolve(question);
                  })
@@ -27,11 +27,10 @@ class QuestionDao{
     list(categoryId)
     {
         return new Promise((resolve, reject) =>{
-          
 
-            this
+                 this
                 ._http
-                .get(this._baseUrl + "/" + categoryId.toString())
+                ._get(this._baseUrl + "/" + categoryId.toString())
                 .then(questions => {
                     resolve(questions);
                  })

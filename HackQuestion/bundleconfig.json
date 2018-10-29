@@ -9,9 +9,18 @@
     ]
   },
   {
-    "outputFileName": "wwwroot/js/site.min.js",
+    "outputFileName": "wwwroot/js/site.min.js", 
     "inputFiles": [
-      "wwwroot/js/site.js"
+      "wwwroot/js/site.js",
+      "wwwroot/js/app/services/HttpServices.js",
+      "wwwroot/js/app/services/QuestionServices.js",
+      "wwwroot/js/app/helpers/Arrays.js",
+      "wwwroot/js/app/models/Question.js",
+      "wwwroot/js/app/dao/QuestionDao.js",
+      "wwwroot/js/app/views/View.js",
+      "wwwroot/js/app/views/QuestionView.js",
+      "wwwroot/js/app/controllers/QuestionController.js" 
+
     ],
     // Optionally specify minification options
     "minify": {

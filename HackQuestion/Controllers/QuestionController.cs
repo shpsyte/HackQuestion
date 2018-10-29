@@ -30,6 +30,7 @@ namespace HackQuestion.Controllers
         public IActionResult Get(int id)
         {
             var data = _question.GetAll(a => a.CategoryId == id);
+            
             if (data == null)
                 return NotFound();
 
@@ -64,8 +65,8 @@ namespace HackQuestion.Controllers
                 questionModel._Tips,
                 questionModel._Answer,
                 questionModel._CategoryId,
+                false, // questionModel._Published, //todo make published by role of user!
                 questionModel._Seconds
-                
              );
 
  

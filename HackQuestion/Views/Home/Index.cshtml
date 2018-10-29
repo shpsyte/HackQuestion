@@ -1,13 +1,10 @@
-﻿
-
-<header class="jumbotron text-center bg-gray pb-2 mb-0">
-   
+﻿<header class="jumbotron text-center bg-gray pb-2 mb-0">
     <h1 class="alt-h0 mb-2 text-info">Hack <i style="font-style: italic" class="font-weight-light text-success">the</i> Question</h1>
     <h4 class="alt-lead text-gray mb-md-5 col-md-8 mx-auto font-weight-light">
          Learn <b>Regular Question</b> in the fastest, easiest and most fun way!
     </h4>
-   
 </header>
+
 
 <header class="jumbotron bg-white p-0">
     <div class="container p-0">
@@ -15,7 +12,19 @@
     <div class="row">
         <div class="col-md-3">
             1. Choose your language
-            <select id="categoryIdRandom" class="form-control" asp-items="ViewBag.CategoryId"> </select>
+
+             <div class="row">
+                 <div class="com-md-2">
+                    <select id="maxQuestion" class="form-control">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                            <option value="50">50</option>
+                    </select>
+                 </div>
+                 <div class="com-md-10">
+                    <select id="categoryIdRandom" class="form-control" asp-items="ViewBag.CategoryId"> </select>
+                 </div>
+             </div>
         </div>
         <div class="col-md-3">
             2. Generate Question
@@ -24,7 +33,6 @@
         <div class="col-md-6">
            We add some feacture, like <b>record yourself, time to response,</b> enjoy it ;)
         </div>
-        
     </div>
     </div>
 </header>
@@ -32,9 +40,7 @@
 
  
 <header class="jumbotron bg-white p-0">
-    <div id="table" class="container p-0">
-     
-    </div>
+    <div id="results" class="container p-0"></div>
 </header>
 
   
@@ -46,8 +52,6 @@
         <i class="text-info font-weight-normal">Question</i>
 
     </h1>
-     
-
 
     <h5 class="alt-lead text-gray  col-md-8 mx-auto font-weight-light">
         Want to contribute? Just send your question <a data-toggle="modal" data-target="#sendquestion" href="#">here</a>.
@@ -60,6 +64,7 @@
 </header>
 
 @{ await Html.RenderPartialAsync("_Modal"); } 
+
 
 
  

@@ -6,21 +6,19 @@ class HttpServices{
                return res;
            }else
            {
-               throw new Error(res.status + ": " + res.statusText);
+               throw new Error(res.statusText);
            }
     
        } 
      
-        get(url){
-    
+        _get(url){
+        
             return fetch(url)
-             .then(res => this._handleErrors(res))
-             .then(res => res.json());
-    
-     
+            .then(res => this._handleErrors(res))
+            .then(res => res.json());
         }
     
-        post(url, dado) {
+        _post(url, dado) {
             
             return fetch(url, {
                         headers: {'Content-type': 'application/json'},
@@ -30,7 +28,6 @@ class HttpServices{
                     .then(this._handleErrors)
                     .then(res => res.json())
                     .catch(error => {
-                       // throw new Error(error);
                         console.log(error);
                     });
  
