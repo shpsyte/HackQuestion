@@ -25,12 +25,13 @@ namespace HackQuestion.Controllers
             {
                 List<Category> items = new List<Category>();
 
-                items.Add(new Category("C#"));
                 items.Add(new Category("Regular Question"));
+                items.Add(new Category("C#"));
                 items.Add(new Category("PHP"));
-                items.Add(new Category("RoR"));
+                items.Add(new Category("Ruby and Rails"));
                 items.Add(new Category("Javascript"));
                 items.Add(new Category("Java"));
+                items.Add(new Category("Data Analysis - BI"));
                 items.Add(new Category("SQL Server"));
                 items.Add(new Category("General"));
 
