@@ -1,0 +1,21 @@
+﻿html {
+    scroll-behavior: smooth;
+  }
+  
+body {
+     /* background-color: rgb(246, 248, 250);   */
+      font-size: 1.2rem !important;
+      font-weight: 300;
+      line-height: 1.52947;
+      letter-spacing: .011em;
+      color: #212529;
+      text-align: left;
+}
+    
+.bg-gray{
+  background-color: rgb(246, 248, 250) !important;
+}
+
+.jumbotron{
+    border-radius: 0 !important;
+}

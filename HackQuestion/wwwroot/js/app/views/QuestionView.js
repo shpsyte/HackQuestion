@@ -1,3 +1,5 @@
+//${!item.published ? "<span class='small badge badge-warning font-weight-light'>Not verified.</span>" : ""}
+
 class QuestionView extends View {
 
     constructor(elemento){
@@ -26,16 +28,13 @@ class QuestionView extends View {
                             <div class="card-header" id="${item.id}">
                             <div class="row">
                                <div class="col-md-8 text-left">
-                               <p class="text-success text-left font-weight-light">(${item.id}) ${item.description}</p> 
-                               ${!item.published ? "<span class='small badge badge-warning font-weight-light'>Not verified.</span>" : ""}
-
-                               
+                               <p class="text-success text-left font-weight-light">${item.description}</p> 
                                </div>
                                <div class="col-md-4 text-center">
                                    <div class="row">
                                         <div class="col-6">
                                             <button class="btn btn-info text-left" data-toggle="collapse" data-target="#collapse${item.id}" aria-expanded="true" aria-controls="collapse${item.id}">
-                                              Show Answer
+                                              Answer/Tips
                                             </button>
                                         </div>
                                         <div class="col-6">
@@ -45,7 +44,7 @@ class QuestionView extends View {
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                           <i class="small text-muted text-left font-weight-light">You have ${item.seconds} seconds to response this question.</i>
+                                           <i class="small text-muted text-left font-weight-light">${item.seconds > 0 ? `You have ${item.seconds} seconds to response this question.` : "" } </i>
                                         </div>
                                    </div>
                                </div>
@@ -53,7 +52,10 @@ class QuestionView extends View {
                             </div>
                             <div id="collapse${item.id}" class="collapse" aria-labelledby="${item.id}" data-parent="#accordion">
                                 <div class="card-body">
-                                ${item.answer}
+                                ${item.answer.replace(/(?:\r\n|\r|\n)/g, '<br>')}
+                                <br>
+                                <br>
+                                ${item.tips.replace(/(?:\r\n|\r|\n)/g, '<br>')}
                                 </div>
                             </div>
                         </div>
