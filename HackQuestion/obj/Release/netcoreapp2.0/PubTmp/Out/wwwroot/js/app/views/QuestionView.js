@@ -1,3 +1,5 @@
+//${!item.published ? "<span class='small badge badge-warning font-weight-light'>Not verified.</span>" : ""}
+
 class QuestionView extends View {
 
     constructor(elemento){
@@ -27,7 +29,6 @@ class QuestionView extends View {
                             <div class="row">
                                <div class="col-md-8 text-left">
                                <p class="text-success text-left font-weight-light">${item.description}</p> 
-                               ${!item.published ? "<span class='small badge badge-warning font-weight-light'>Not verified.</span>" : ""}
                                </div>
                                <div class="col-md-4 text-center">
                                    <div class="row">
@@ -43,7 +44,7 @@ class QuestionView extends View {
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                           <i class="small text-muted text-left font-weight-light">You have ${item.seconds} seconds to response this question.</i>
+                                           <i class="small text-muted text-left font-weight-light">${item.seconds > 0 ? `You have ${item.seconds} seconds to response this question.` : "" } </i>
                                         </div>
                                    </div>
                                </div>
