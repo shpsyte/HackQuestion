@@ -1,36 +1,36 @@
 ﻿<header class="jumbotron text-center bg-gray pb-2 mb-0">
     <h1 class="alt-h0 mb-2 text-info">Hack <i style="font-style: italic" class="font-weight-light text-success">the</i> Question</h1>
     <h4 class="alt-lead text-gray mb-md-5 col-md-8 mx-auto font-weight-light">
-         Learn <b>Regular Question</b> in the fastest, easiest and most fun way!
+        Learn <b>Regular Question</b> in the fastest, easiest and most fun way!
     </h4>
 </header>
 <header class="jumbotron bg-white p-0">
     <div class="container p-0">
-   <h1 class="mb-3 mt-3 text-dark text-left">It's very simple!</h1>
-    <div class="row">
-        <div class="col-md-3">
-            1. Choose your language
-             <div class="row">
-                 <div class="com-md-2">
-                    <select id="maxQuestion" class="form-control">
+        <h1 class="mb-3 mt-3 text-dark text-left">It's very simple!</h1>
+        <div class="row">
+            <div class="col-md-3">
+                1. Choose your language
+                <div class="row">
+                    <div class="com-md-2">
+                        <select id="maxQuestion" class="form-control">
                             <option value="5">5</option>
                             <option value="10">10</option>
                             <option value="50">50</option>
-                    </select>
-                 </div>
-                 <div class="com-md-10">
-                    <select id="categoryIdRandom" class="form-control" asp-items="ViewBag.CategoryId"> </select>
-                 </div>
-             </div>
+                        </select>
+                    </div>
+                    <div class="com-md-10">
+                        <select id="categoryIdRandom" class="form-control" asp-items="ViewBag.CategoryId"> </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                2. Generate Question
+                <button onclick="controller.random(event);" class="btn btn-success">Generate</button>
+            </div>
+            <div class="col-md-6">
+                We add some feacture, like <b>record yourself, time to response,</b> enjoy it ;)
+            </div>
         </div>
-        <div class="col-md-3">
-            2. Generate Question
-            <button onclick="controller.random(event);" class="btn btn-success">Generate</button>
-        </div>
-        <div class="col-md-6">
-           We add some feacture, like <b>record yourself, time to response,</b> enjoy it ;)
-        </div>
-    </div>
     </div>
 </header>
 <header class="jumbotron bg-white p-0">
@@ -42,7 +42,7 @@
     </h1>
 
     <h5 class="alt-lead text-gray  col-md-8 mx-auto font-weight-light">
-       Just send your question <a data-toggle="modal" data-target="#sendquestion" href="#">here</a>.
+        Just send your question <a data-toggle="modal" data-target="#sendquestion" href="#">here</a>.
     </h5>
     <p class="small">
         This is a Open Source Project, you can contribute add feacture, add better layout,
@@ -50,11 +50,80 @@
     </p>
     <!-- <a class="btn btn-info btn-lg" href="#">Send question</a> -->
 </header>
-@{ await Html.RenderPartialAsync("_Modal"); } 
+@{ await Html.RenderPartialAsync("_Modal"); }
+@{ await Html.RenderPartialAsync("_Record"); }
 
+@section Scripts {
+    <script>
+        // Store a reference of the preview video element and a global reference to the recorder instance
 
+        var video = document.getElementById('my-preview');
+        var recorder;
 
- 
+        // When the user clicks on start video recording
+        document.getElementById('btn-start-recording').addEventListener("click", function () {
+            // Disable start recording button
+            this.disabled = true;
 
+            // Request access to the media devices
+            navigator.mediaDevices.getUserMedia({
+                audio: true,
+                video: true
+            }).then(function (stream) {
+                // Display a live preview on the video element of the page
+                setSrcObject(stream, video);
 
+                // Start to display the preview on the video element
+                // and mute the video to disable the echo issue !
+                video.play();
+                video.muted = true;
 
+                // Initialize the recorder
+                recorder = new RecordRTCPromisesHandler(stream, {
+                    mimeType: 'video/webm',
+                    bitsPerSecond: 128000
+                });
+
+                // Start recording the video
+                recorder.startRecording().then(function () {
+                    console.info('Recording video ...');
+                }).catch(function (error) {
+                    console.error('Cannot start video recording: ', error);
+                });
+
+                // release stream on stopRecording
+                recorder.stream = stream;
+
+                // Enable stop recording button
+                document.getElementById('btn-stop-recording').disabled = false;
+            }).catch(function (error) {
+                console.error("Cannot access media devices: ", error);
+            });
+        }, false);
+
+        // When the user clicks on Stop video recording
+        document.getElementById('btn-stop-recording').addEventListener("click", function () {
+            this.disabled = true;
+
+            recorder.stopRecording().then(function () {
+                console.info('stopRecording success');
+
+                // Retrieve recorded video as blob and display in the preview element
+                var videoBlob = recorder.getBlob();
+                video.src = URL.createObjectURL(videoBlob);
+                video.play();
+
+                // Unmute video on preview
+                video.muted = false;
+
+                // Stop the device streaming
+                recorder.stream.stop();
+
+                // Enable record button again !
+                document.getElementById('btn-start-recording').disabled = false;
+            }).catch(function (error) {
+                console.error('stopRecording failure', error);
+            });
+        }, false);
+    </script>
+}

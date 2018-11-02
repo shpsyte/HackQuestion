@@ -23,7 +23,15 @@ class QuestionView extends View {
 
         return `
         <div id="accordions">
-                    ${model.map(item => `
+                    ${model.map(item => {
+                        
+                    let btn = '';
+                    if (item.answer) {
+                        btn = `<div class="col-6"><button class="btn btn-info text-left" data-toggle="collapse" data-target="#collapse${item.id}" aria-expanded="true" aria-controls="collapse${item.id}">Answer/Tips</button></div>`;
+                    } else {
+                        btn = '';
+                    };
+                    return `
                         <div class="d-flex p-1 card font-weight-light">
                             <div class="card-header" id="${item.id}">
                             <div class="row">
@@ -31,20 +39,16 @@ class QuestionView extends View {
                                <p class="text-success text-left font-weight-light">${item.description}</p> 
                                </div>
                                <div class="col-md-4 text-center">
-                                   <div class="row">
+                                   <div class="row">  
+                                        ${btn} 
                                         <div class="col-6">
-                                            <button class="btn btn-info text-left" data-toggle="collapse" data-target="#collapse${item.id}" aria-expanded="true" aria-controls="collapse${item.id}">
-                                              Answer/Tips
-                                            </button>
-                                        </div>
-                                        <div class="col-6">
-                                            <button class="btn btn-warning text-left">
+                                            <button class="btn btn-warning text-left" data-toggle="modal" data-target="#record" >
                                               Record yourself
                                             </button>
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                           <i class="small text-muted text-left font-weight-light">${item.seconds > 0 ? `You have ${item.seconds} seconds to response this question.` : "" } </i>
+                                           <i class="small text-muted text-left font-weight-light">${item.seconds > 0 ? `You have ${item.seconds} seconds to response this question.` : ""} </i>
                                         </div>
                                    </div>
                                </div>
@@ -59,7 +63,7 @@ class QuestionView extends View {
                                 </div>
                             </div>
                         </div>
-                     `).join('')}
+                     `}).join('')}
         </div>
       `;
         // return `

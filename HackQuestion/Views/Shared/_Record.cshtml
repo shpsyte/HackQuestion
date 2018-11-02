@@ -1,31 +1,25 @@
-<div class="modal fade" id="record" tabindex="-1" role="dialog" aria-labelledby="records" aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      
-    <div class="modal-body">
-        <video id="myVideo" class="video-js vjs-default-skin">
-            <p class="vjs-no-js">
-                To view this video please enable JavaScript, or consider upgrading to a
-                web browser that
-                <a href="http://videojs.com/html5-video-support/" target="_blank">
-                supports HTML5 video.
-                </a>
-            </p>
-            </video>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
-      </div>
+<div class="modal fade" id="record" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<h5 class="modal-title" id="exampleModalLongTitle">Record Yourself!</h5> &nbsp;*@
+                Look at the camera, and start rock!
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> 
+            <div class="modal-body">
+                <video id="my-preview" controls autoplay style="width:460px; height:300px;"> </video>
+            </div>
+            <div class="modal-footer">
+                <button id="btn-start-recording" class="btn btn-info">Start Recording</button>
+                <button id="btn-stop-recording" class="btn btn-info" disabled="disabled">Stop Recording</button>
+
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">I'm Rock! </button>
+            </div>
 
 
+        </div>
     </div>
-  </div>
 </div>
- 
-  
+
