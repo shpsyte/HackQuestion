@@ -42,7 +42,7 @@ class QuestionView extends View {
                                    <div class="row">  
                                         ${btn} 
                                         <div class="col-6">
-                                            <button class="btn btn-warning text-left">
+                                            <button class="btn btn-warning text-left" data-toggle="modal" data-target="#record" >
                                               Record yourself
                                             </button>
                                         </div>
