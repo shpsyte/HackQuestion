@@ -53,57 +53,6 @@ var defaultWidth
 var defaultHeight
 var recorder
 
-// When the user clicks on start video recording
-document.getElementById('btn-start-recording-old').addEventListener(
-  'click',
-  function() {
-    // Disable start recording button
-    this.disabled = true
-
-    // Request access to the media devices
-    navigator.mediaDevices
-      .getUserMedia({
-        audio: true,
-        video: true
-      })
-      .then(function(stream) {
-        // Display a live preview on the video element of the page
-        setSrcObject(stream, video)
-
-        // Start to display the preview on the video element
-        // and mute the video to disable the echo issue !
-        video.play()
-        video.muted = true
-
-        // Initialize the recorder
-        recorder = new RecordRTCPromisesHandler(stream, {
-          mimeType: 'video/webm',
-          bitsPerSecond: 128000
-        })
-
-        // Start recording the video
-        recorder
-          .startRecording()
-          .then(function() {
-            console.info('Recording video ...')
-          })
-          .catch(function(error) {
-            console.error('Cannot start video recording: ', error)
-          })
-
-        // release stream on stopRecording
-        recorder.stream = stream
-
-        // Enable stop recording button
-        document.getElementById('btn-stop-recording').disabled = false
-      })
-      .catch(function(error) {
-        console.error('Cannot access media devices: ', error)
-      })
-  },
-  false
-)
-
 function getRandomString() {
   if (
     window.crypto &&
