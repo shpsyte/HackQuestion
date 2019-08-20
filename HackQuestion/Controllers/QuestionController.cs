@@ -5,17 +5,14 @@ using HackQuestion.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace HackQuestion.Controllers
-{
-    [Produces("application/json")]
-    [Route("api/[controller]")]
-    public class QuestionController : ControllerBase
-    {
+namespace HackQuestion.Controllers {
+    [Produces ("application/json")]
+    [Route ("api/[controller]")]
+    public class QuestionController : ControllerBase {
         private readonly ICategoryServices _category;
         private readonly IQuestionServices _question;
 
-        public QuestionController(ICategoryServices category, IQuestionServices question)
-        {
+        public QuestionController (ICategoryServices category, IQuestionServices question) {
             this._category = category;
             this._question = question;
 
@@ -23,20 +20,18 @@ namespace HackQuestion.Controllers
 
         // GET: api/Question
         [HttpGet]
-        public IEnumerable<Question> Get() => _question.GetAll();
+        public IEnumerable<Question> Get () => _question.GetAll ();
 
         // GET: api/Question/5
-        [HttpGet("{id}")]
-        public IActionResult Get(int id)
-        {
-            var data = _question.GetAll(a => a.CategoryId == id);
-            
+        [HttpGet ("{id}")]
+        public IActionResult Get (int id) {
+            var data = _question.GetAll (a => a.CategoryId == id);
+
             if (data == null)
-                return NotFound();
+                return NotFound ();
 
-            return Ok(data);
+            return Ok (data);
         }
-
 
         //[HttpGet("{categoryid:int}")]
         //[Route("api/RandomByCategory/")]
@@ -51,48 +46,50 @@ namespace HackQuestion.Controllers
 
         // POST: api/Question
         [HttpPost]
-        public IActionResult Post([FromBody] QuestionModel questionModel)
-        {
-            bool valid = TryValidateModel(questionModel);
+        public IActionResult Post ([FromBody] QuestionModel questionModel) {
+            bool valid = TryValidateModel (questionModel);
 
-            if (!valid)
-            {
-                return BadRequest();
+            if (!valid) {
+                return BadRequest ();
             }
 
-            Question question = new Question(
+            var description = questionModel._Description.ToUpper ();
+
+            var hasBeenCreateTheQuestion =
+                _question.Count (a => a.Description.ToUpper ().Contains (description)) > 0;
+
+            if (hasBeenCreateTheQuestion) {
+                return BadRequest ();
+            }
+
+            Question question = new Question (
                 questionModel._Description,
                 questionModel._Tips,
                 questionModel._Answer,
                 questionModel._CategoryId,
                 false, // questionModel._Published, //todo make published by role of user!
                 questionModel._Seconds
-             );
+            );
 
- 
-             if (_category.Count(a => a.Id == questionModel._CategoryId) == 0)
-             {
-                 ModelState.AddModelError("CategoryId","Category not found");
-                 return BadRequest(ModelState);
-             }
+            if (_category.Count (a => a.Id == questionModel._CategoryId) == 0) {
+                ModelState.AddModelError ("CategoryId", "Category not found");
+                return BadRequest (ModelState);
+            }
 
-            _question.Add(question);
-            _question.Save();
-            return Ok(question);
+            _question.Add (question);
+            _question.Save ();
+            return Ok (question);
             // return CreatedAtRoute("Get", new { id = question.Id });
 
         }
-        
-     
-        
+
         // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-            var data = _question.Find(id);
+        [HttpDelete ("{id}")]
+        public void Delete (int id) {
+            var data = _question.Find (id);
             data.Deleted = true;
-            _question.Update(data);
-            _question.Save();
+            _question.Update (data);
+            _question.Save ();
         }
     }
 }
