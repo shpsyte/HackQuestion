@@ -13812,11 +13812,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/HackQuestion/HackQuestion.csproj",
+      "projectUniqueName": "/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/HackQuestion.csproj",
       "projectName": "HackQuestion",
-      "projectPath": "/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/HackQuestion/HackQuestion.csproj",
+      "projectPath": "/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/HackQuestion.csproj",
       "packagesPath": "/home/jose/.nuget/packages/",
-      "outputPath": "/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/HackQuestion/obj/",
+      "outputPath": "/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"

@@ -1,19 +1,22 @@
-﻿<header class="jumbotron text-center bg-gray pb-2 mb-0">
-    <h1 class="alt-h0 mb-2 text-info">Hack <i style="font-style: italic" class="font-weight-light text-success">the</i> Question</h1>
-    <h4 class="alt-lead text-gray md-5 col-md-8 mx-auto font-weight-light">
+﻿<header class="jumbotron text-left bg-blue">
+    <h1 class="alt-lead text-white col-md-9 mx-auto font-weight-bold">Learn from Question</h1>
+     
+    <h4 class="alt-lead text-white md-5 col-md-9 mx-auto font-weight-light">
         Learn <b>Regular Question</b> in the fastest, easiest and most fun way!
     </h4>
-     <h5 class="alt-lead text-gray col-md-8 mx-auto font-weight-light">
+     <h5 class="alt-lead text-gray col-md-9 mx-auto  font-weight-light">
         Use by <strong>Interviewers</strong> and <b>Candidates!</b>
     </h5>
 </header>
 <header class="jumbotron bg-white p-0">
-    <div class="container p-0">
-        <h2 class="mb-3 mt-3 text-dark text-center">It's very simple!</h2>
+    <div class="container p-0 text-center">
+        <h2 class="mb-3 mt-3 text-dark">It's simple!</h2>
         <div class="row">
-            <div class="col-md-3">
-                1. Choose your language
-                <div class="row">
+            <div class="col-md-6">
+                <p>1. Choose your content!</p>
+                <select id="categoryIdRandom" class="form-control" asp-items="ViewBag.CategoryId"> </select>
+                <input type="hidden" id="maxQuestion" name = "maxQuestion" value=15 />
+                <!-- <div class="row">
                     <div class="com-md-2">
                         <select id="maxQuestion" class="form-control">
                             <option value="50">50</option>
@@ -22,24 +25,23 @@
                         </select>
                     </div>
                     <div class="com-md-10">
-                        <select id="categoryIdRandom" class="form-control" asp-items="ViewBag.CategoryId"> </select>
+                        
                     </div>
-                </div>
-            </div>
-            <div class="col-md-3">
-                2. Generate Question
-                <button onclick="controller.random(event);" class="btn btn-success">Generate</button>
+                </div> -->
             </div>
             <div class="col-md-6">
-                We add some feacture, like <b>record yourself, time to response,</b> enjoy it ;)
+                <p>2. Generate Question</p>
+                <button onclick="controller.random(event);" class="btn btn-success">Generate</button>
             </div>
+             
         </div>
     </div>
 </header>
+<br><br>
 <header class="jumbotron bg-white p-0">
     <div id="results" class="container p-0"></div>
 </header>
-<header class="jumbotron text-center bg-gray pb-4 mb-5">
+<header class="jumbotron text-center bg-white pb-4 mb-5">
     <h1 class="alt-h0  text-dark font-weight-light">
         How to contribute ?
     </h1>

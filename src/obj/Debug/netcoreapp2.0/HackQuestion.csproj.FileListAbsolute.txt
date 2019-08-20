@@ -22,3 +22,15 @@ E:/DotNet/Workspace/HackQuestion/HackQuestion/HackQuestion/obj/Debug/netcoreapp2
 /media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/HackQuestion/obj/Debug/netcoreapp2.0/HackQuestion.AssemblyInfo.cs
 /media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/HackQuestion/obj/Debug/netcoreapp2.0/HackQuestion.dll
 /media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/HackQuestion/obj/Debug/netcoreapp2.0/HackQuestion.pdb
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/bin/Debug/netcoreapp2.0/HackQuestion.deps.json
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/bin/Debug/netcoreapp2.0/HackQuestion.runtimeconfig.json
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/bin/Debug/netcoreapp2.0/HackQuestion.runtimeconfig.dev.json
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/bin/Debug/netcoreapp2.0/HackQuestion.dll
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/bin/Debug/netcoreapp2.0/HackQuestion.pdb
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/obj/Debug/netcoreapp2.0/HackQuestion.csprojAssemblyReference.cache
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/obj/Debug/netcoreapp2.0/HackQuestion.csproj.CoreCompileInputs.cache
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/obj/Debug/netcoreapp2.0/HackQuestion.AssemblyInfoInputs.cache
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/obj/Debug/netcoreapp2.0/HackQuestion.AssemblyInfo.cs
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/obj/Debug/netcoreapp2.0/HackQuestion.dll
+/media/jose/Data/DotNet/Workspace/HackQuestion/HackQuestion/src/obj/Debug/netcoreapp2.0/HackQuestion.pdb
