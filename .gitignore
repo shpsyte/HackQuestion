@@ -21,16 +21,16 @@ project.lock.json
 /src/[Pp]ublic/
 
 # Build results
-[src]/[Dd]ebug/
-[src]/[Dd]ebugPublic/
-[src]/[Rr]elease/
-[src]/[Rr]eleases/
+[src]/[Dd]ebug/*
+[src]/[Dd]ebugPublic/*
+[src]/[Rr]elease/*
+[src]/[Rr]eleases/*
 x64/
 x86/
 build/
 bld/
-[src]/[Bb]in/
-[src]/[Oo]bj/
+[src]/[Bb]in/*
+[src]/[Oo]bj/*
 msbuild.log
 msbuild.err
 msbuild.wrn
