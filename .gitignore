@@ -4,7 +4,8 @@ project.lock.json
 .DS_Store
 *.pyc
 
-HackQuestion/appsettings.json
+[HackQuestion]/appsettings.json
+
 
 
 # Visual Studio Code
@@ -17,19 +18,19 @@ HackQuestion/appsettings.json
 *.userosscache
 *.sln.docstates
 
-[Pp]ublic/
+/HackQuestion/[Pp]ublic/
 
 # Build results
-[Dd]ebug/
-[Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
+[HackQuestion]/[Dd]ebug/
+[HackQuestion]/[Dd]ebugPublic/
+[HackQuestion]/[Rr]elease/
+[HackQuestion]/[Rr]eleases/
 x64/
 x86/
 build/
 bld/
-[Bb]in/
-[Oo]bj/
+[HackQuestion]/[Bb]in/
+[HackQuestion]/[Oo]bj/
 msbuild.log
 msbuild.err
 msbuild.wrn
