@@ -31,6 +31,8 @@ build/
 bld/
 [src]/[Bb]in/*
 [src]/[Oo]bj/*
+[src]/[Oo]bj/[Dd]ebug/
+[src]/[Oo]bj/[Dd]ebug/
 msbuild.log
 msbuild.err
 msbuild.wrn
