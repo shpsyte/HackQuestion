@@ -1,4 +1,4 @@
-﻿// Store a reference of the preview video element and a global reference to the recorder instance
+﻿var video = document.querySelector('video')
 function captureCamera(callback) {
   navigator.mediaDevices
     .getUserMedia({ audio: true, video: true })
@@ -20,7 +20,6 @@ function stopRecordingCallback() {
   recorder.destroy()
   recorder = null
 }
-
 var recorder // globally accessible
 document.getElementById('btn-start-recording').onclick = function() {
   this.disabled = true
@@ -39,94 +38,5 @@ document.getElementById('btn-start-recording').onclick = function() {
 }
 document.getElementById('btn-stop-recording').onclick = function() {
   this.disabled = true
-  document.getElementById('btn-start-recording').disabled = false
   recorder.stopRecording(stopRecordingCallback)
 }
-
-var video = document.getElementById('my-preview')
-var fileExtension = 'webm'
-var mimeType = 'video/webm'
-var fileExtension = 'webm'
-var type = 'video'
-var recorderType
-var defaultWidth
-var defaultHeight
-var recorder
-
-function getRandomString() {
-  if (
-    window.crypto &&
-    window.crypto.getRandomValues &&
-    navigator.userAgent.indexOf('Safari') === -1
-  ) {
-    var a = window.crypto.getRandomValues(new Uint32Array(3)),
-      token = ''
-    for (var i = 0, l = a.length; i < l; i++) {
-      token += a[i].toString(36)
-    }
-    return token
-  } else {
-    return (Math.random() * new Date().getTime())
-      .toString(36)
-      .replace(/\./g, '')
-  }
-}
-
-function getFileName(fileExtension) {
-  var d = new Date()
-  var year = d.getUTCFullYear()
-  var month = d.getUTCMonth()
-  var date = d.getUTCDate()
-  return (
-    'RecordRTC-' +
-    year +
-    month +
-    date +
-    '-' +
-    getRandomString() +
-    '.' +
-    fileExtension
-  )
-}
-
-function stopVideo() {
-  document.getElementById('btn-stop-recording').disabled = true
-  recorder
-    .stopRecording()
-    .then(function() {
-      console.info('stopRecording success 2')
-
-      // Retrieve recorded video as blob and display in the preview element
-      var videoBlob = recorder.getBlob()
-
-      video.src = URL.createObjectURL(videoBlob)
-
-      video.play()
-
-      // // Unmute video on preview
-      video.muted = false
-
-      // // Stop the device streaming
-      recorder.stream.stop()
-
-      // Enable record button again !
-      document.getElementById('btn-start-recording').disabled = false
-    })
-    .catch(function(error) {
-      console.error('stopRecording failure', error)
-    })
-}
-
-// When the user clicks on Stop video recording
-document.getElementById('btn-stop-recording').addEventListener(
-  'click',
-  function() {
-    this.disabled = true
-    stopVideo()
-  },
-  false
-)
-
-$('#record').on('hidden.bs.modal', function(e) {
-  stopVideo()
-})
