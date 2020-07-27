@@ -38,5 +38,6 @@ document.getElementById('btn-start-recording').onclick = function() {
 }
 document.getElementById('btn-stop-recording').onclick = function() {
   this.disabled = true
+  document.getElementById('btn-start-recording').disabled = false
   recorder.stopRecording(stopRecordingCallback)
 }
